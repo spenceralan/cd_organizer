@@ -8,7 +8,7 @@ class Collection
     end
 
     def add_cd(cd)
-      @@collection.push(cd)
+      @@collection.push(cd) unless cd.title.empty? && cd.artist.empty?
     end
 
     def empty_collection
@@ -38,7 +38,7 @@ class CD
   end
 
   def update_attribute(attribute, new_attr)
-    send("#{attribute}=", new_attr) unless attribute.empty?
+    send("#{attribute}=", new_attr) unless new_attr.empty?
   end
 
 end
