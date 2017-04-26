@@ -33,3 +33,9 @@ get('/edit-cd') do
   cd.update_attribute("artist", params.fetch('artist'))
   erb(:index)
 end
+
+get('/delete-cd') do
+  cd = Collection.find_cd(params.fetch('id'))
+  Collection.delete_cd(cd.id)
+  erb(:index)
+end

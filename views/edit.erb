@@ -12,3 +12,10 @@
   </div>
   <button class="btn btn-success">Edit CD</button>
 </form>
+<form action="/delete-cd">
+  <div style="display:none;">
+    <label for="id"></label>
+    <%= "<input name='id' id='id' value='#{@id}'>" %>
+  </div>
+  <button class="btn btn-danger">Delete CD</button>
+</form>
