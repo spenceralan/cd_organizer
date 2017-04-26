@@ -9,6 +9,7 @@
   <button class="btn btn-success">Add CD</button>
 </form>
 
+
 <hr>
 
 <% if !Collection.all_cds.empty? %>
@@ -16,6 +17,6 @@
 <% end %>
 <ul>
   <% Collection.all_cds.each do |cd| %>
-    <%= "<li>#{cd.title}, by #{cd.artist}</li>" %>
+    <%= "<li><a href='/edit-page/#{cd}'>#{cd.title}, by #{cd.artist}</a></li>" %>
   <% end %>
 </ul>

@@ -32,10 +32,12 @@ class CD
 
   attr_accessor :title
   attr_accessor :artist
+  attr_accessor :id
 
   def initialize(title, artist)
     self.title = title
     self.artist = artist
+    self.id = Collection.all_cds.length + 1
   end
 
   def update_attribute(attribute, new_attr)

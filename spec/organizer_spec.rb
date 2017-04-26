@@ -27,6 +27,13 @@ describe 'CD' do
     end
   end
 
+  describe("#initialize") do
+    it "Adds an ID to the CD based on the number of previous entries" do
+      love = CD.new("Love", "Lana Del Rey")
+      expect(love.id).to eq 1
+    end
+  end
+
 end
 
 describe 'Collection' do

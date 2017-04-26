@@ -19,3 +19,20 @@ get('/add-cd') do
   my_cds.add_cd(new_cd)
   erb(:index)
 end
+
+get("/edit-page/") do
+  erb(:edit)
+end
+
+get("/edit-cd/:object") do
+  i = Collection.all_cds.index_of(params.fetch("object"))
+  @cd = Collection.all_cds[i]
+  erb(:edit)
+end
+
+
+
+get('/edit-cd') do
+
+  erb(:index)
+end
