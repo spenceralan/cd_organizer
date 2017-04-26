@@ -1,4 +1,4 @@
-<h1>Add a CD:</h1>
+<h1><%= @message %></h1>
 <form action="/add-cd">
   <div class="form-group">
      <label for="title">CD title:</label>
@@ -7,15 +7,15 @@
      <input name="artist" id="artist" class="form-control" type="text">
   </div>
   <button class="btn btn-success">Add CD</button>
-  <hr>
-  <% if Collection.all_cds.empty?.==(false) %>
-  <h1>My CDs:</h1>
-  <% end %>
-  <ul>
-    <% Collection.all_cds.each do |cd| %>
-    <li><%= cd.title %>, by <%= cd.artist %></li>
-    <% end %>
-  </ul>
-
-
 </form>
+
+<hr>
+
+<% if !Collection.all_cds.empty? %>
+<h1>My CDs:</h1>
+<% end %>
+<ul>
+  <% Collection.all_cds.each do |cd| %>
+    <%= "<li>#{cd.title}, by #{cd.artist}</li>" %>
+  <% end %>
+</ul>

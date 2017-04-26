@@ -6,11 +6,12 @@ require 'pry'
 also_reload('lib/**/*.rb')
 
 get('/') do
-
+  @message = "Add a CD!"
   erb(:index)
 end
 
 get('/add-cd') do
+  @message = "Successfully added! Add another!"
   title = params.fetch('title')
   artist = params.fetch('artist')
   new_cd = CD.new(title, artist)
