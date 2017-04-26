@@ -3,6 +3,8 @@ require 'sinatra/reloader'
 require './lib/organizer'
 require 'pry'
 
+enable :sessions
+
 also_reload('lib/**/*.rb')
 
 get('/') do

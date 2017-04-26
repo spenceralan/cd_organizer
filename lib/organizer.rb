@@ -20,7 +20,8 @@ class Collection
     end
 
     def self.find_artist(artist)
-      @@collection.map {|cd| cd if cd.artist.downcase == artist.downcase}
+      cds = @@collection.clone
+      cds.keep_if {|cd| cd.artist.downcase == artist.downcase}
     end
 
     def self.delete_cd(id)
