@@ -27,10 +27,11 @@ describe 'CD' do
     end
   end
 
+  # ponder how to test this
   describe("#initialize") do
     it "Adds an ID to the CD based on the number of previous entries" do
       love = CD.new("Love", "Lana Del Rey")
-      expect(love.id).to eq 1
+      expect(love.id).to be_a(String)
     end
   end
 
@@ -62,7 +63,8 @@ describe 'Collection' do
   describe("#find_cd") do
     it "Finds a CD based on id and returns the object" do
       collection.add_cd(love)
-      expect(Collection.find_cd(1)).to eq love
+      id = love.id
+      expect(Collection.find_cd(id)).to eq love
     end
   end
 

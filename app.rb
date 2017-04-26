@@ -21,14 +21,14 @@ get('/add-cd') do
 end
 
 get("/edit-page/:id") do
-  cd = Collection.find_cd(params.fetch('id').to_i)
+  cd = Collection.find_cd(params.fetch('id'))
   @message = "#{cd.title}, by #{cd.artist}"
   @id = cd.id
   erb(:edit)
 end
 
 get('/edit-cd') do
-  cd = Collection.find_cd(params.fetch('id').to_i)
+  cd = Collection.find_cd(params.fetch('id'))
   cd.update_attribute("title", params.fetch('title'))
   cd.update_attribute("artist", params.fetch('artist'))
   erb(:index)

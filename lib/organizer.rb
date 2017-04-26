@@ -1,16 +1,4 @@
-# @@collection = []
-#
-# class Cd
-#   define_method(:initialize) do |title, artist|
-#     @title = title
-#     @artist  = artist
-#   end
-#
-#   define_method(:list_collection) do
-#     @@collection
-#   end
-#
-# end
+require('uuid')
 
 class Collection
     @@collection = []
@@ -31,6 +19,10 @@ class Collection
       @@collection.find {|cd| cd.id == id}
     end
 
+    def delete_cd(id)
+      @@collection.delete
+    end
+
 end
 
 class CD
@@ -42,7 +34,7 @@ class CD
   def initialize(title, artist)
     self.title = title
     self.artist = artist
-    self.id = Collection.all_cds.length + 1
+    self.id = UUID.new.generate
   end
 
   def update_attribute(attribute, new_attr)
