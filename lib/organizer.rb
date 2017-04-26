@@ -42,4 +42,8 @@ class CD
     self.artist = new_artist
   end
 
+  def update_title(new_artist)
+    self.title = new_artist
+  end
+
 end
