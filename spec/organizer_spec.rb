@@ -29,11 +29,22 @@ describe 'Collection' do
   let(:love) { CD.new("Love", "Lana Del Rey") }
   let(:collection) { Collection.new }
 
+  before do
+    collection.empty_collection
+  end
+
   describe('#add_cd') do
     it 'Adds a CD to the collection' do
-      collection.empty_collection
       collection.add_cd(love)
       expect(Collection.all_cds).to eq [love]
+    end
+  end
+
+  describe('#empty_collection') do
+    it 'Empties the collection' do
+      collection.add_cd(love)
+      collection.empty_collection
+      expect(Collection.all_cds).to eq []
     end
   end
 
