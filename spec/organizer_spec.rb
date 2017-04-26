@@ -3,17 +3,25 @@ require "rspec"
 require "pry"
 
 
-# example project spec
 
-# describe 'Palindrome#isWord?' do
-#   let(:word) { Palindrome.new }
+describe 'Cd' do
+  let(:collection) { Collection.new }
 
-#   it "returns true if the word has at least one vowel" do
-#     expect(word.is_word?("word")).to eq true
-#   end
 
-#   it "returns false if the word does not have a vowel" do
-#     expect(word.is_word?("wrd")).to eq false
-#   end
+  describe("#list_collection") do
+    it "returns an empty array for a collection that is empty" do
+      love = CD.new("Love", "Lana Del Rey")
+      collection.add_cd(love)
+      expect(Collection.all_cds).to eq [love]
+    end
+  end
 
-# end
+  describe("#update_artist") do
+    it "returns an empty array for a collection that is empty" do
+      love = CD.new("Love", "Lana Del Rey")
+      love.update_artist("Justin Timberlake")
+      expect(love.artist()).to eq "Justin Timberlake"
+    end
+  end
+
+end
