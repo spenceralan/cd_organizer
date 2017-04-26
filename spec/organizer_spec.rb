@@ -4,9 +4,8 @@ require "pry"
 
 
 
-describe 'Cd' do
+describe 'CD' do
   let(:collection) { Collection.new }
-
 
   describe("#list_collection") do
     it "returns an empty array for a collection that is empty" do
@@ -16,19 +15,25 @@ describe 'Cd' do
     end
   end
 
-  describe("#update_artist") do
-    it "Updates the artist atttribute" do
+  describe("#update_attribute") do
+    it "Updates any atttribute of the CD" do
       love = CD.new("Love", "Lana Del Rey")
-      love.update_artist("Justin Timberlake")
-      expect(love.artist()).to eq "Justin Timberlake"
+      love.update_attribute("title","Hate")
+      expect(love.title).to eq "Hate"
     end
   end
 
-  describe("#update_title") do
-    it "Updates the title atttribute" do
-      love = CD.new("Love", "Lana Del Rey")
-      love.update_title("Hate")
-      expect(love.title()).to eq "Hate"
+end
+
+describe 'Collection' do
+  let(:love) { CD.new("Love", "Lana Del Rey") }
+  let(:collection) { Collection.new }
+
+  describe('#add_cd') do
+    it 'Adds a CD to the collection' do
+      collection.empty_collection
+      collection.add_cd(love)
+      expect(Collection.all_cds).to eq [love]
     end
   end
 

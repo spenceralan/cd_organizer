@@ -38,12 +38,8 @@ class CD
     self.artist = artist
   end
 
-  def update_artist(new_artist)
-    self.artist = new_artist
-  end
-
-  def update_title(new_artist)
-    self.title = new_artist
+  def update_attribute(attribute, new_attr)
+    send("#{attribute}=", new_attr)
   end
 
 end
