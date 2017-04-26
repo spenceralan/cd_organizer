@@ -26,6 +26,11 @@ class Collection
     def empty_collection
       @@collection = []
     end
+
+    def find_cd(id)
+      @@collection.find {|cd| cd.id == id}
+    end
+
 end
 
 class CD
