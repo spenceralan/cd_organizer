@@ -7,6 +7,10 @@ require "pry"
 describe 'CD' do
   let(:collection) { Collection.new }
 
+  before do
+    collection.empty_collection
+  end
+
   describe("#list_collection") do
     it "returns an empty array for a collection that is empty" do
       love = CD.new("Love", "Lana Del Rey")
