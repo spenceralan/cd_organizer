@@ -19,8 +19,8 @@ class Collection
       @@collection.find {|cd| cd.id == id}
     end
 
-    def delete_cd(id)
-      @@collection.delete
+    def self.delete_cd(id)
+      @@collection.delete(self.find_cd(id))
     end
 
 end

@@ -68,5 +68,22 @@ describe 'Collection' do
     end
   end
 
+  describe("#delete_cd") do
+    it "Deletes a CD based on id and returns the object" do
+      collection.add_cd(love)
+      id = love.id
+      expect(Collection.delete_cd(id)).to eq love
+    end
+
+    it "Deletes a CD based on id and returns the object" do
+      collection.add_cd(love)
+      id = love.id
+      Collection.delete_cd(id)
+      expect(Collection.all_cds).to eq []
+    end
+  end
+
+
+
 
 end
