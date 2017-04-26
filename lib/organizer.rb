@@ -27,7 +27,7 @@ class Collection
       @@collection = []
     end
 
-    def find_cd(id)
+    def self.find_cd(id)
       @@collection.find {|cd| cd.id == id}
     end
 
@@ -46,7 +46,7 @@ class CD
   end
 
   def update_attribute(attribute, new_attr)
-    send("#{attribute}=", new_attr)
+    send("#{attribute}=", new_attr) unless attribute.empty?
   end
 
 end

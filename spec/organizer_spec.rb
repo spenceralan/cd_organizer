@@ -62,7 +62,7 @@ describe 'Collection' do
   describe("#find_cd") do
     it "Finds a CD based on id and returns the object" do
       collection.add_cd(love)
-      expect(collection.find_cd(1)).to eq love
+      expect(Collection.find_cd(1)).to eq love
     end
   end
 

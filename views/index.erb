@@ -17,6 +17,6 @@
 <% end %>
 <ul>
   <% Collection.all_cds.each do |cd| %>
-    <%= "<li><a href='/edit-page/#{cd}'>#{cd.title}, by #{cd.artist}</a></li>" %>
+    <%= "<li><a href='/edit-page/#{cd.id}'>#{cd.title}, by #{cd.artist}</a></li>" %>
   <% end %>
 </ul>
