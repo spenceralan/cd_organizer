@@ -19,6 +19,10 @@ class Collection
       @@collection.find {|cd| cd.id == id}
     end
 
+    def self.find_artist(artist)
+      @@collection.map {|cd| cd if cd.artist.downcase == artist.downcase}
+    end
+
     def self.delete_cd(id)
       @@collection.delete(self.find_cd(id))
     end

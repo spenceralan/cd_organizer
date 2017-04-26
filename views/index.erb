@@ -20,3 +20,19 @@
     <%= "<li><a href='/edit-page/#{cd.id}'>#{cd.title}, by #{cd.artist}</a></li>" %>
   <% end %>
 </ul>
+
+<h1>Search for artist:</h1>
+<form action="/search-artist">
+  <div class="form-group">
+     <label for="artist-search">Artist</label>
+     <input name="artist-search" id="artist-search" class="form-control" type="text">
+  </div>
+  <button class="btn btn-warning">search</button>
+</form>
+<% unless @albums_by_artist == [nil] || @albums_by_artist == nil %>
+<ul>
+  <% @albums_by_artist.each do |cd| %>
+    <%= "<li><a href='/edit-page/#{cd.id}'>#{cd.title}, by #{cd.artist}</a></li>" %>
+  <% end %>
+</ul>
+<% end %>

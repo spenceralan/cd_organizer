@@ -68,6 +68,14 @@ describe 'Collection' do
     end
   end
 
+  describe("#find_artist") do
+    it "Finds a CD based on artist and returns the object" do
+      collection.add_cd(love)
+      id = love.id
+      expect(Collection.find_artist("Lana Del Rey")).to eq [love]
+    end
+  end
+
   describe("#delete_cd") do
     it "Deletes a CD based on id and returns the object" do
       collection.add_cd(love)
@@ -82,6 +90,7 @@ describe 'Collection' do
       expect(Collection.all_cds).to eq []
     end
   end
+
 
 
 

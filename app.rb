@@ -39,3 +39,9 @@ get('/delete-cd') do
   Collection.delete_cd(cd.id)
   erb(:index)
 end
+
+get('/search-artist') do
+  artist_search = params.fetch('artist-search')
+  @albums_by_artist = Collection.find_artist(artist_search)
+  erb(:index)
+end
