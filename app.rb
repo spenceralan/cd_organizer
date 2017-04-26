@@ -23,6 +23,7 @@ get('/add-cd') do
 end
 
 get("/edit-page/:id") do
+  session[:cd_id] = params.fetch('id')
   cd = Collection.find_cd(params.fetch('id'))
   @message = "#{cd.title}, by #{cd.artist}"
   @id = cd.id
@@ -30,14 +31,16 @@ get("/edit-page/:id") do
 end
 
 get('/edit-cd') do
-  cd = Collection.find_cd(params.fetch('id'))
+  @message = "Successfully updated!"
+  cd = Collection.find_cd(session[:cd_id])
   cd.update_attribute("title", params.fetch('title'))
   cd.update_attribute("artist", params.fetch('artist'))
   erb(:index)
 end
 
 get('/delete-cd') do
-  cd = Collection.find_cd(params.fetch('id'))
+  @message = "Successfully deleted!"
+  cd = Collection.find_cd(session[:cd_id])
   Collection.delete_cd(cd.id)
   erb(:index)
 end
